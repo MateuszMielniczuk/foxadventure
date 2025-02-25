@@ -1,0 +1,26 @@
+<table border="2">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Arrival</th>
+      <th>Departure</th>
+      <th>Port name</th>
+      <th>Vessel name</th>
+      <th>Passengers</th>
+      <th>Crew</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for row in data %}
+    <tr>
+      <td>{{ row.id }}</td>
+      <td>{{ row.arrival }}</td>
+      <td>{{ row.departure }}</td>
+      <td>{{ row.location_name }}</td>
+      <td>{{ row.vessel_name }}</td>
+      <td>{{ row.vessel_passengers }}</td>
+      <td>{{ row.vessel_crew }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>

@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fox Adventure</title>
+    <script src="https://unpkg.com/htmx.org@2.0.4"></script>
+    <script src="https://unpkg.com/htmx.org/dist/ext/client-side-templates.js"></script>
+  </head>
+  <body>
+    <h1>Akureyri ships</h1>
+    <!-- <script> -->
+    <!--   function fetchJSONData() { -->
+    <!--     fetch("../data/data_freeze_31_Jan.json") -->
+    <!--       .then((res) => { -->
+    <!--         if (!res.ok) { -->
+    <!--           throw new Error(`HTTP error! Status: ${res.status}`); -->
+    <!--         } -->
+    <!--         return res.json(); -->
+    <!--       }) -->
+    <!--       .then((data) => { -->
+    <!--         let output = ""; -->
+    <!--         data.forEach(function (item) { -->
+    <!--           output += ` -->
+    <!--           <tr> -->
+    <!--              			<td>${item.id}</td> -->
+    <!--              			<td>${item.arrival}</td> -->
+    <!--              			<td>${item.departure}</td> -->
+    <!--              			<td>${item.location_name}</td> -->
+    <!--              			<td>${item.vessel_name}</td> -->
+    <!--              			<td>${item.vessel_passengers}</td> -->
+    <!--              			<td>${item.vessel_crew}</td> -->
+    <!--           </tr> -->
+    <!--              		`; -->
+    <!--         }); -->
+    <!--         document.getElementById("userdata").innerHTML = output; -->
+    <!--       }) -->
+    <!--       .catch((error) => { -->
+    <!--         // console.error("Unable to fetch data:", error); -->
+    <!--         // document.getElementById("userdata").innerHTML = -->
+    <!--         // "Error Loading Data"; -->
+    <!--       }); -->
+    <!--   } -->
+    <!--   fetchJSONData(); -->
+    <!-- </script> -->
+    <div hx-ext="client-side-templates">
+      <form
+        hx-get="/vessels"
+        hx-trigger="submit"
+        hx-target="#vessel_data"
+        hx-swap="innerHTML"
+      >
+        <label>Year</label>
+        <select name="year">
+          <option value="2025">2025</option>
+          <option value="2026">2026</option>
+          <option value="2027">2027</option>
+          <option value="2028">2028</option>
+          <option value="2029">2029</option>
+          <option value="2030">2030</option>
+          <option value="2031">2031</option>
+          <option value="2032">2032</option>
+          <option value="2033">2033</option>
+          <option value="2034">2034</option>
+          <option value="2035">2035</option>
+        </select>
+        <input type="submit" />
+      </form>
+
+      <div
+        id="vessel_data"
+        hx-trigger="load"
+        hx-get="/vessels"
+        hx-swap="innerHTML"
+      ></div>
+    </div>
+  </body>
+</html>
