@@ -188,7 +188,7 @@ def compare_data(
     Compare data and generate report.
     """
 
-    report = {}
+    report: dict = {}
     # convert data to key value pairs to search by ID
     data_old_dict = convert_json_to_dict(data_old)
     data_new_dict = convert_json_to_dict(data_new)
